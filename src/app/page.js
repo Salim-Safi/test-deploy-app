@@ -9,7 +9,8 @@ export default function Home() {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/items');
+        const response = await axios.get(process.env.NEXT_PUBLIC_API_URL);
+        console.log(response.data);
         setItems(response.data);
       } catch (error) {
         console.error('Error fetching items:', error);
